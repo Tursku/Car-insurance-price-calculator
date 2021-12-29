@@ -1,12 +1,14 @@
-import urllib
-import urllib2
+from selenium import webdriver
+from selenium.webdriver.support.select import Select
+import time
 
-name =  "name field"
-data = {
-        "name" : name 
-       }
-
-encoded_data = urllib.urlencode(data)
-content = urllib2.urlopen("http://www.abc.com/messages.php?action=send",
-        encoded_data)
-print (content.readlines())
+driver = webdriver.Chrome('/Users/eetuturakainen/Downloads/chromedriver')
+form_url = "https://www.op.fi/henkiloasiakkaat/vakuutukset/ajoneuvovakuutus/autovakuutus-henkiloautolle"
+driver.get(form_url)
+time.sleep(3)
+driver.find_element_by_id("ocm-button ocm-button--accept-all").click()
+time.sleep(3)
+time.sleep(3)
+time.sleep(3)
+time.sleep(3)
+time.sleep(3)
