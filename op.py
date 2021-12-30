@@ -21,7 +21,12 @@ def op(reg, hetu, km):
     Select(web.find_element_by_id('kilometresPerYear')).select_by_value(km)
     time.sleep(1)
     web.find_element_by_id('jatka-data-aff').click()
-    time.sleep(1)
-    web.find_element_by_xpath('//*[@id="ins-option-1"]').click()
+    time.sleep(5)
+    web.find_element_by_xpath('//*[@id="options-list"]/li[1]/div[3]/div[1]/label/span/span[2]').click()
+
+
 
     return
+
+
+    
