@@ -35,7 +35,7 @@ def insuranceOp(reg, hetu, km):
     time.sleep(2)
     amount = web1.find_element_by_xpath('//*[@id="amount-full"]')
     if type (amount) == int or bool or str:
-        print("Pohjola : " + str(amount.text))
+        print("Pohjola : " + str(amount.text) + " €")
     else:
         insuranceOp
 

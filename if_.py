@@ -20,7 +20,21 @@ def insuranceIf(reg, hetu, km, address, post):
     web.find_element_by_xpath('//*[@id="ctl06_ucProcess_ucTopQuestions_qst_11634"]').send_keys(post) 
     web.find_element_by_xpath('//*[@id="ctl06_ucProcess_ucTopQuestions_btnMiddleStepPrice"]').click()
 
-    time.sleep(1)
+    time.sleep(8) # This needs the do when element available thing asap!
+
+    web.find_element_by_xpath('//*[@id="quote-page-app"]/div[2]/div[1]/div[1]/div[4]/div[3]/div[1]/div[1]/div[2]/div[3]/div/label').click() # Selecting all of the extra shiet
+    time.sleep(5)   
+    web.find_element_by_xpath('//*[@id="quote-page-app"]/div[2]/div[1]/div[1]/div[4]/div[3]/div[2]/div[1]/div[2]/div[3]/div/label').click()
+    time.sleep(5)
+    web.find_element_by_xpath('//*[@id="quote-page-app"]/div[2]/div[1]/div[1]/div[4]/div[3]/div[3]/div[1]/div[2]/div[3]/div/label').click()
+    time.sleep(5)    
+    web.find_element_by_xpath('//*[@id="quote-page-app"]/div[2]/div[1]/div[2]/div/div/div/div[2]/ul/li[1]').click() # 200€
+    time.sleep(5)
+
+    amount = web.find_element_by_xpath('//*[@id="pnlPurchaseProductQuestions"]/div[2]/div/div[2]/div[2]/h6[2]')
+    print("If : " + str(amount.text))
+
+    time.sleep(10)
 
     web.close()
     return
