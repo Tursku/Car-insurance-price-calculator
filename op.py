@@ -24,10 +24,16 @@ def insuranceOp(reg, hetu, km):
     web1.find_element_by_id('jatka-data-aff').click()
     time.sleep(5)
     web1.find_element_by_xpath('//*[@id="options-list"]/li[1]/div[3]/div[1]/label/span/span[2]').click() #Kasko
-             
-    web1.find_element_by_xpath('//*[@id="t2k6b8mpth"]/div/div/label').click()
-    web1.find_element_by_xpath('//*[@id="optional-covers-cover-1"]').click()
-    time.sleep(3)  
+    time.sleep(0.5)
+
+    checkboxes = web1.find_elements_by_css_selector(".opux-input-checkbox label:empty") # Extra things 
+    for checkbox in checkboxes:
+        checkbox.click()
+
+    time.sleep(1)
+    amount = web1.find_element_by_xpath('//*[@id="amount-full"]')
+    print(amount.text) #Put this in variable or txt file
+
 
     web1.quit()
     return
