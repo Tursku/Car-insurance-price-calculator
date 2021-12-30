@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.support.select import Select
 import time
 
-def insuranceIf(reg, hetu, km):
+def insuranceIf(reg, hetu, km, address, post):
     web=    webdriver.Chrome('/Users/eetuturakainen/Downloads/chromedriver')
     form_url=               ("https://www.if.fi/henkiloasiakkaat/vakuutukset/autovakuutus")
     web.get(form_url)
@@ -13,9 +13,14 @@ def insuranceIf(reg, hetu, km):
     web.find_element_by_xpath('//*[@id="qst_11630_9941162d-0136-4489-b0ab-adecca269141"]').send_keys(hetu) 
     web.find_element_by_xpath('//*[@id="entryFormSubmit"]').click()
 
-    time.sleep(1)
+    time.sleep(5)
 
-    time.sleep(3)
+    Select(web.find_element_by_xpath('//*[@id="ctl06_ucProcess_ucTopQuestions_qst_15370"]')).select_by_value(km)
+    web.find_element_by_xpath('//*[@id="ctl06_ucProcess_ucTopQuestions_qst_12535"]').send_keys(address) 
+    web.find_element_by_xpath('//*[@id="ctl06_ucProcess_ucTopQuestions_qst_11634"]').send_keys(post) 
+    web.find_element_by_xpath('//*[@id="ctl06_ucProcess_ucTopQuestions_btnMiddleStepPrice"]').click()
+
+    time.sleep(1)
 
     web.close()
     return

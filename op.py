@@ -16,6 +16,8 @@ def insuranceOp(reg, hetu, km):
     time.sleep(1)
     web1.find_element_by_id('userInfoSSN').send_keys(hetu)
 
+    time.sleep(1)
+
     web1.find_element_by_xpath('//*[@id="data-aff-price-form"]/div[1]/div[4]/div/div[1]/div/div/div[1]/label[2]').click()
     web1.find_element_by_xpath('//*[@id="data-aff-price-form"]/div[1]/div[4]/div/div[3]/div/div[1]/div[1]/label[1]').click()
 
@@ -30,10 +32,12 @@ def insuranceOp(reg, hetu, km):
     for checkbox in checkboxes:
         checkbox.click()
 
-    time.sleep(1)
+    time.sleep(2)
     amount = web1.find_element_by_xpath('//*[@id="amount-full"]')
-    print(amount.text) #Put this in variable or txt file
-
+    if type (amount) == int or bool or str:
+        print("Pohjola : " + str(amount.text))
+    else:
+        insuranceOp
 
     web1.quit()
     return
