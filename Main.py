@@ -1,9 +1,10 @@
 
 from op import op
 
-# Enter your cars registeration number and your social security number
-hetu=   ("ddmmyy-1234") # <--- SSN Here
-reg=    ("ABC-123")     # <--- Registeration nm here
+# Enter your cars registeration number, your social security number and yearly kilometers
+hetu=   ("ddmmyy-1234") # <--- SSN
+reg=    ("ABC-123")     # <--- Registeration nr
+km=     ("30000")       # <--- KM 
 
 op(reg, hetu)
 
